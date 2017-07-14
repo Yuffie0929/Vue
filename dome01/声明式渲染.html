@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <input type="text" v-model="message">
+    <p @click = "clickHandle">{{message}}</p>
+</div>
+
+</body>
+<script>
+    var arr = [1, 2, 3, 4, 5];
+
+    /*方法一 命令式*/
+    var newArr = [];
+    for(var i = 0; i < arr.length; i++){
+        newArr.push(arr[i] * 2);
+    }
+
+    /*方法二 声明式*/
+    var newArr = arr.map(function (item){
+        return item * 2;
+    });
+
+    /*vue声明式*/
+
+    console.log(newArr);
+</script>
+</html>

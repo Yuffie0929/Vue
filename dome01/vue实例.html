@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <input type="text" v-model="message">
+    <p @click = "clickHandle">{{message}}</p>
+</div>
+
+</body>
+<script>
+    let data = {
+        message : "hello, Vue!"
+    };
+
+    var vm = new Vue({
+        el: "#demo",
+        data : data,
+        methods: {
+            clickHandle(){
+                alert("click");
+            }
+        }
+    });
+
+    console.log(vm);
+
+</script>
+</html>

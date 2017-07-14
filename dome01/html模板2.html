@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bg{
+            background-color: red;
+        }
+    </style>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+<script>
+    let data = {
+        html: "<div>hello, Vue!</div>",
+        name: "Yuffie"
+    };
+
+    var vm = new Vue({
+        el: "#demo",
+        data : data,
+        render(createElement){
+            var obj = createElement(
+                    "ul", {
+                        class: { bg: true },
+                        style: { fontSize: "50px" },
+                        attrs: { key: "abc" },
+                        on: { click: function (){
+                            alert(1);
+                        }},
+                    }, [
+                        createElement("li", {
+                            class: { bg: true },
+                            style: { fontSize: "50px" },
+                            attrs: { key: "abc" },
+                            domProps: { innerHTML: "<p>我是innerHTML</p>"},
+                            on: { click: function (){
+                                alert(2);
+                            }},
+                        }),
+                        createElement("li", 2),
+                        createElement("li", 3),
+                    ]
+            )
+            console.log(obj);
+            return obj
+        }
+    });
+
+</script>
+</html>

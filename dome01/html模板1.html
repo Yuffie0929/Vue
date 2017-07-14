@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <input type="text" v-model="message">
+    <p>{{message}}</p>
+    <p :cutomId="id" v-html="html"></p>
+    <div>{{1+2}}</div>
+    <div>{{true ? 1 : 2}}</div>
+</div>
+
+</body>
+<script>
+    let data = {
+        message : "hello, Vue!",
+        id: "123",
+        html : "<b>模板内容</b>!"
+    };
+
+    var vm = new Vue({
+        el: "#demo",
+        data : data
+    });
+
+</script>
+</html>

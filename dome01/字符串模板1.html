@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <span>111</span>
+</div>
+
+</body>
+<script>
+    let data = {
+        html: "<div>hello, Vue!</div>",
+        name: "Yuffie"
+    };
+
+    var str =  //只能有一个根元素
+        `<p>
+            <span>I'm {{name}}!</span>
+        </p>`;
+
+    var vm = new Vue({
+        el: "#demo",
+        data : data,
+        template: str
+    });
+
+</script>
+</html>
