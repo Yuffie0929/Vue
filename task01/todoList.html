@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todoList</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <style>
+        #todoList{
+            width: 600px;
+        }
+        .checkbox:hover .glyphicon-remove{
+            display: block;
+        }
+        .glyphicon-remove{
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 10px;
+            margin: auto 0;
+        }
+        .tab-content {
+            padding: 10px 20px;
+            border-radius: 0 0 4px 4px;
+        }
+    </style>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+</head>
+<body>
+<div class="container" id="todoList">
+    <h4>添加任务</h4>
+    <input type="text" class="form-control" placeholder="输入回车即可添加任务" @keyup.enter="addTodo('123', $event)" v-model="todo">
+    <br>
+    <ul class="nav nav-pills" role="tablist">
+        <li role="presentation" class="active"><a href="#">所有任务<span class="badge">{{allList}}</span></a></li>
+        <li role="presentation"><a href="#">未完成的任务<span class="badge">{{todoList}}</span></a></li>
+        <li role="presentation"><a href="#">完成的任务<span class="badge">{{haveDownList}}</span></a></li>
+    </ul>
+    <!--任务列表-->
+    <form>
+        <div class="checkbox" v-for="item in list">
+            <label>
+                <input type="checkbox">{{item.title}}
+            </label>
+            <div class="glyphicon glyphicon-remove" @click="delTodo"></div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
