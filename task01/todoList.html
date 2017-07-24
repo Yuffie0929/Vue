@@ -24,6 +24,18 @@
             padding: 10px 20px;
             border-radius: 0 0 4px 4px;
         }
+        .havedown label {
+            text-decoration: line-through
+        }
+        .checkbox{
+            position: relative;
+        }
+        .checkbox input[type=text]{
+            height: 22px;
+            position: absolute;
+            left: 10px;
+            right: 20px;
+        }
     </style>
     <script type="text/javascript" src="../lib/vue/vue.js"></script>
 </head>
@@ -33,17 +45,29 @@
     <input type="text" class="form-control" placeholder="输入回车即可添加任务" @keyup.enter="addTodo('123', $event)" v-model="todo">
     <br>
     <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="active"><a href="#">所有任务<span class="badge">{{allList}}</span></a></li>
-        <li role="presentation"><a href="#">未完成的任务<span class="badge">{{todoList}}</span></a></li>
-        <li role="presentation"><a href="#">完成的任务<span class="badge">{{haveDownList}}</span></a></li>
+        <li role="presentation" :class="{'active': active == 'ALL'}" @click="changeList('ALL')">
+            <a href="#">所有任务<span class="badge" v-text="allLength"></span></a>
+        </li>
+        <li role="presentation" :class="{'active': active == 'TODO'}" @click="changeList('TODO')">
+            <a href="#">未完成的任务<span class="badge" v-text="nocheckedLength"></span></a>
+        </li>
+        <li role="presentation" :class="{'active': active == 'HAVEDOWN'}" @click="changeList('HAVEDOWN')">
+            <a href="#">完成的任务<span class="badge"  v-text="checkedLength"></span></a>
+        </li>
     </ul>
     <!--任务列表-->
     <form>
-        <div class="checkbox" v-for="item in list">
-            <label>
-                <input type="checkbox">{{item.title}}
-            </label>
-            <div class="glyphicon glyphicon-remove" @click="delTodo"></div>
+        <div class="checkbox" :class="{havedown: item.isChecked}" v-for="(item, index) in showList">
+            <input type="checkbox" :checked="item.isChecked" @change="changeChecked($event, item)">
+            <label v-text="item.title" @dblclick="editListItem(item)"></label>
+            <div class="glyphicon glyphicon-remove" @click="delTodo(index)" ></div>
+            <input type="text"
+                   v-show="item === editingItem"
+                   v-focus="item === editingItem"
+                   v-model="item.title"
+                   @keyup.13="saveEdit"
+                   @blur="saveEdit"
+                   @keyup.esc="cancelEdit">
         </div>
     </form>
 </div>
