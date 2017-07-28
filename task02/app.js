@@ -2,6 +2,7 @@
  * 下拉选择组件
  * Created by Yuffie on 2017/7/24.
  */
+
 Vue.component('custom-list', {
     template: `<ul class="list">
                 <li>html+css</li>
