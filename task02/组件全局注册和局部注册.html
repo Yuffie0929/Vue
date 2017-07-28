@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件全局注册和局部注册</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <style>
+        .wrap{
+            font-size: 0;
+            background-color: #cdcdcd;
+            border-radius: 20px;
+            width: 400px;
+            padding: 5px;
+        }
+        .content{
+            font-size: 14px;
+        }
+        .keyWord{
+            box-sizing: border-box;
+            width: 80%;
+            height: 30px;
+            border-radius: 15px;
+            outline: none;
+            padding: 3px 10px;
+            border: none;
+        }
+        .search{
+            box-sizing: border-box;
+            width: 18%;
+            float: right;
+            height: 30px;
+            border-radius: 15px;
+            outline: none;
+            background-color: #ff7f2e;
+            border: none;
+            color:#fff;
+        }
+        .list{
+            list-style: none;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin: 0;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .list li{
+            cursor: pointer;
+            padding: 5px;
+        }
+        .list li:hover{
+            background-color: #ffa5c8;
+        }
+    </style>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>全局注册</h2>
+        <custom-select1></custom-select1>
+        <h2>局部注册</h2>
+        <custom-select2></custom-select2>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
