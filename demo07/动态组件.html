@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态组件</title>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="切换1" @click="tabComponent(1)">
+    <input type="button" value="切换2" @click="tabComponent(2)">
+    <input type="button" value="切换3" @click="tabComponent(3)">
+    <keep-alive>
+        <component :is="current"></component>
+    </keep-alive>
+</div>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
