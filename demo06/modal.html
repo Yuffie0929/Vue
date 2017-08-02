@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+    <style>
+        .modal-wrapper{
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 0;
+            width: 300px;
+        }
+        .modal-header{
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .modal-header h4{
+            margin: 0;
+        }
+        .modal-content{
+            padding: 10px;
+        }
+        .modal-footer{
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            text-align: right;
+        }
+        input[type=button]{
+            background-color: #ddd;
+            color: #fff;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            padding: 3px 8px;
+            cursor: pointer;
+        }
+        input[type=button].blue{
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <modal modal-title="标题" @on-ok="ok" @on-cancel="cancel"></modal>
+        <modal>
+            <ul slot="modal-content">
+                <li v-for="item of list" v-text="item.text"></li>
+            </ul>
+            <div slot="modal-footer">
+                <input class="btn blue" type="button" value="重置">
+                <input class="btn" type="button" value="返回">
+            </div>
+        </modal>
+        <modal @on-cancel="cancel"></modal>
+    </div>
+    <script type="text/javascript" src="modal.js"></script>
+</body>
+</html>

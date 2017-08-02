@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单向数据流</title>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+</head>
+<body>
+<!--    <div id="app">
+        <h2 v-text="count"></h2>
+        <custom-component :count="count"></custom-component>
+    </div>-->
+    <div id="app">
+        <h2 v-text="count"></h2>
+        <custom-component :count="count" @increment-click="changeCount"></custom-component>
+    </div>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

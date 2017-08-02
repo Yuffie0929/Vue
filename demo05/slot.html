@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot内容分发</title>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--定制模板-->
+
+        <custom>
+            <div slot="one">替换成1</div>
+            <div slot="three">替换成3</div>
+            <template slot="two">
+                <div>替换成2</div>
+                <div>替换成2</div>
+                <div>替换成2</div>
+                <div>替换成2</div>
+                <div>替换成2</div>
+                <div>替换成2</div>
+            </template>
+        </custom>
+
+    </div>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

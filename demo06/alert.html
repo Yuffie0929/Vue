@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue/vue.js"></script>
+    <style>
+        .m-alert{
+            width: 400px;
+            border-radius: 10px;
+            padding: 10px;
+            position: relative;
+        }
+        .m-alert-info{
+            background-color: deepskyblue;
+        }
+        .m-alert-success{
+            background-color: #00ac12;
+        }
+        .m-alert-error{
+            background-color: #d20012;
+        }
+        .m-alert-warning{
+            background-color: #ffc019;
+        }
+        .m-icon{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-size: 100%;
+            cursor: pointer;
+        }
+        .m-icon-info{
+            position: absolute;
+            left: 10px;
+            background-image: url(img/info.png);
+        }
+        .m-icon-success{
+            position: absolute;
+            left: 10px;
+            background-image: url(img/success.png);
+        }
+        .m-icon-error{
+            position: absolute;
+            left: 10px;
+            background-image: url(img/alert.png);
+        }
+        .m-icon-warning{
+            position: absolute;
+            left: 10px;
+            background-image: url(img/alert.png);
+        }
+        .m-icon + .m-content{
+            padding-left: 35px;
+        }
+        .m-content{
+            color:#fff;
+            padding-right: 35px;
+        }
+        .m-icon-close{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-image: url(img/close.png);
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <m-alert type="info" title="今天天气不错" :closeable="false"></m-alert>
+    <m-alert type="success" title="信息提交成功" :show-icon="false" @close-click="close"></m-alert>
+    <m-alert type="error" title="信息提交失败" @close-click="close">
+        <i slot="m-icon" class="m-icon m-icon-success"></i>
+        <ul slot="m-content">
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+        </ul>
+    </m-alert>
+    <m-alert type="warning" title="地球要爆炸啦" warp-style="background-color: pink;width: 500px;" @close-click="close"></m-alert>
+</div>
+<script type="text/javascript" src="alert.js"></script>
+</body>
+</html>
